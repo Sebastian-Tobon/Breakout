@@ -15,7 +15,7 @@ ROJO = (255, 0, 0)
 class Pelota(pygame.sprite.Sprite):
     # Esta clase es la definición del objeto Pelota
     # Irá rebotando entre los ladrillos y el portero
-    # Si la pelota supera la zona de TouchDown se considerará que ha perdido una vida
+    # Si la pelota supera la zona de anotación se considerará que ha perdido una vida
 
     # Definimos las coordenadas con la posición inicial de la pelota
     coordX = 0.0

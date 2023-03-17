@@ -10,7 +10,7 @@ BLANCO = (255, 255, 255)
 class Portero(pygame.sprite.Sprite):
     # Esta clase es la definición del objeto Portero
     # Será necesario ir moviendo el portero para que la pelota rebote y así evitar
-    # que esta supere la zona de TouchDown ya que se considerará que ha perdido una vida
+    # que esta supere la zona de antación ya que se considerará que ha perdido una vida
 
     def __init__(self):
         # Invocamos al constructor de la clase padre para la inicialización [Sprite]

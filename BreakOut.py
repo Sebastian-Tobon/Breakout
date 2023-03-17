@@ -14,7 +14,7 @@ def pausarJuego():
     alertaPausa_posicion.top = 300
     tablero.blit(alertaPausa, alertaPausa_posicion)
 
-    # Generamos un buqle hasta que detectemos que se ha producido de nuevo el KeyDown del espacio para reanudar el juego
+    # Generamos un bucle hasta que detectemos que se ha producido de nuevo el KeyDown del espacio para reanudar el juego
     while juegoPausado:
         for accion in pygame.event.get():
             if accion.type == pygame.QUIT:
@@ -126,21 +126,23 @@ while not exitJuego:
     # Comprobamos si la pelota choca contra algún ladrillo y produce un rebote
     bloquesRestantes = pygame.sprite.spritecollide(valorPelota, spLadrillo, True)
 
-    # Si existen bloques es que se ha producido un rebote en los ladrillos
+    # Comprobamos si aun existen ladrillos y si se ha producido un rebote en los ladrillos sume en la puntuación
     if len(bloquesRestantes) > 0:
         puntuacion += len(bloquesRestantes) * 10
         valorPelota.rebotar(0)
     
-    # Si ya no existen ladrillos significa que todos han sido eliminados y el juego ha terminado
+    # Comprobamos si ya no existen ladrillos significa que todos han sido eliminados y el juego ha terminado
     if len(spLadrillo) == 0:
         gameOver = True
 
+    #  Comprobamos si el juego no ha terminado y si ha sido iniciado
     if not gameOver & iniciado:
         # Posicionamos el área de informar la puntuación alcanzada
         alertaPuntuacion = fuenteJuego.render('Puntos: ' + str(puntuacion), True , BLANCO)
         alertaPuntuacion_posicion = alertaPuntuacion.get_rect(centerx = tableroJuego.get_width() / 5)
         alertaPuntuacion_posicion.top = 10
         
+        # Posicionamos el área para informar la cantidad de vidas
         alertaVidas = fuenteJuego.render('Vidas: ' + str(vidas), True, BLANCO)
         alertaVidas_posicion = alertaVidas.get_rect(centerx = tableroJuego.get_width() / 2)
         alertaVidas_posicion.top = 10
@@ -152,7 +154,7 @@ while not exitJuego:
         alertaTemporizador_posicion.top = 10
         temporizador += 1
 
-    # Actualizamos los valores de puntuación y tiempo mostrados por pantalla
+    # Actualizamos los valores de puntuación, vidas y tiempo mostrados por pantalla
     tablero.blit(alertaPuntuacion, alertaPuntuacion_posicion)
     tablero.blit(alertaTemporizador, alertaTemporizador_posicion)
     tablero.blit(alertaVidas, alertaVidas_posicion)
