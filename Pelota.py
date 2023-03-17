@@ -10,7 +10,6 @@ ALTO = 10
 
 # Definimos la constante del color de relleno de la pelota
 BLANCO = (255, 255, 255)
-ROJO = (255, 0, 0)
 
 class Pelota(pygame.sprite.Sprite):
     # Esta clase es la definición del objeto Pelota
